@@ -3,7 +3,7 @@ package br.com.ecommerce.entities;
 public class Carrinho {
 	private int carr_id;
 	private String carr_descri;
-	private int user_id; 
+	private Usuario user_id; 
 	private Endereco ender_id; 
 	private double carr_subtotal;  
 	
@@ -19,16 +19,16 @@ public class Carrinho {
 	public void setCarr_descri(String carr_descri) {
 		this.carr_descri = carr_descri;
 	}
-	public int getUser_id() {
+	public Usuario getUser_id() {
 		return user_id;
 	}
-	public void setUser_id(int user_id) {
+	public void setUser_id(Usuario user_id) {
 		this.user_id = user_id;
 	}
-	public int getEnder_id() {
+	public Endereco getEnder_id() {
 		return ender_id;
 	}
-	public void setEnder_id(int ender_id) {
+	public void setEnder_id(Endereco ender_id) {
 		this.ender_id = ender_id;
 	}
 	public double getCarr_subtotal() {
@@ -37,12 +37,7 @@ public class Carrinho {
 	public void setCarr_subtotal(double carr_subtotal) {
 		this.carr_subtotal = carr_subtotal;
 	}
-	public Pessoajuridica getPj_id() {
-		return pj_id;
-	}
-	public void setPj_id(Pessoajuridica pj_id) {
-		this.pj_id = pj_id;
-	}
+
 	
 	
 }
