@@ -7,6 +7,8 @@ public class Livro {
 	private String liv_autor; 
 	private String liv_editora;
 	private String liv_descricao; 
+	private int  liv_imagem1; 
+        private int  liv_imagem2;
 	private String  liv_ano; 
 	private Categoria cat_id;
 	private Pessoajuridica pj_id;
