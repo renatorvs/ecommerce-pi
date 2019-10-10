@@ -4,6 +4,8 @@ public class Endereco {
 	private int ender_id;
 	private String ender_numero;
 	private String ender_logra; 
+	private int ender_cep; 
+	private double ender_valorfrete; 
 	private String ender_compl; 
 	private String ender_bairro; 
 	private String ender_cidade; 
@@ -54,6 +56,18 @@ public class Endereco {
 	}
 	public void setEnder_numero(String ender_numero) {
 		this.ender_numero = ender_numero;
+	}
+	public int getEnder_cep() {
+		return ender_cep;
+	}
+	public void setEnder_cep(int ender_cep) {
+		this.ender_cep = ender_cep;
+	}
+	public double getEnder_valorfrete() {
+		return ender_valorfrete;
+	}
+	public void setEnder_valorfrete(double ender_valorfrete) {
+		this.ender_valorfrete = ender_valorfrete;
 	} 
 
 	
