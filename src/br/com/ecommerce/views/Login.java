@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLabel4.setText("Efetue o login");
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ecommerce/entities/images/Capturar.PNG"))); // NOI18N
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/com/ecommerce/images/Capturar.PNG"))); // NOI18N
         jLabel14.setText("LOGO");
 
         jButton1.setText("Entrar");

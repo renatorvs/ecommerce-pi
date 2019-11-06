@@ -1,6 +1,11 @@
 package br.com.ecommerce.entities;
 
 abstract class Usuario {
+    
+    public Usuario( String user_email, String user_senha){
+    this.user_email = user_email;
+    this.user_senha = user_senha;
+    }
 	private int user_id;
 	private String user_email; 
 	private String  user_senha;
@@ -12,10 +17,7 @@ abstract class Usuario {
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public Usuario( String user_email, String user_senha) {
-		this.user_email = user_email;
-		this.user_senha = user_senha;
-	}
+	
 	
 	public String getUser_email() {
 		return user_email;

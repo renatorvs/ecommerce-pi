@@ -26,7 +26,11 @@ public class ConnectionFactory {
     private static final String USER = "root";
     private static final String PASS = "";
     
-    
+    /**
+     *
+     * @return
+     * @throws SQLException
+     */
     public static java.sql.Connection getConnection() throws SQLException {
         
         try {
@@ -41,7 +45,10 @@ public class ConnectionFactory {
         }
     }
     
-    
+    /**
+     *
+     * @param con
+     */
     public static void closeConnection(Connection con){
         try {
             if (con != null) {
@@ -53,6 +60,11 @@ public class ConnectionFactory {
         
     }
     
+    /**
+     *
+     * @param con
+     * @param stmt
+     */
     public static void closeConnection(Connection con, PreparedStatement stmt){
         
         closeConnection(con);
@@ -66,7 +78,12 @@ public class ConnectionFactory {
         
     }
     
-    
+    /**
+     *
+     * @param con
+     * @param stmt
+     * @param result
+     */
     public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet result ){
         
         

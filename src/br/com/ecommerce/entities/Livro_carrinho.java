@@ -1,5 +1,9 @@
 package br.com.ecommerce.entities;
 
+/**
+ *
+ * @author nator
+ */
 public class Livro_carrinho {
 	private int licar_id;
 	private Livro liv_id;
