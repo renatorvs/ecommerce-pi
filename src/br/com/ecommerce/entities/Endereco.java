@@ -8,8 +8,8 @@ public class Endereco {
 	private int ender_id;
 	private String ender_numero;
 	private String ender_logra; 
-	private int ender_cep; 
-	private double ender_valorfrete; 
+	private String ender_cep; 
+	private String ender_valorfrete; 
 	private String ender_compl; 
 	private String ender_bairro; 
 	private String ender_cidade; 
@@ -131,7 +131,7 @@ public class Endereco {
      *
      * @return
      */
-    public int getEnder_cep() {
+    public String getEnder_cep() {
 		return ender_cep;
 	}
 
@@ -139,7 +139,7 @@ public class Endereco {
      *
      * @param ender_cep
      */
-    public void setEnder_cep(int ender_cep) {
+    public void setEnder_cep(String ender_cep) {
 		this.ender_cep = ender_cep;
 	}
 
@@ -147,7 +147,7 @@ public class Endereco {
      *
      * @return
      */
-    public double getEnder_valorfrete() {
+    public String getEnder_valorfrete() {
 		return ender_valorfrete;
 	}
 
@@ -155,7 +155,7 @@ public class Endereco {
      *
      * @param ender_valorfrete
      */
-    public void setEnder_valorfrete(double ender_valorfrete) {
+    public void setEnder_valorfrete(String ender_valorfrete) {
 		this.ender_valorfrete = ender_valorfrete;
 	} 
 

@@ -6,13 +6,13 @@ package br.com.ecommerce.entities;
  */
 public class Livro {
 	private int liv_id;
+	private int totallivro;
 	private String liv_titulo; 
 	private double liv_preco;
 	private String liv_autor; 
 	private String liv_editora;
 	private String liv_descricao; 
-	private int  liv_imagem1; 
-        private int  livimagem2;
+	
 	private String  liv_ano; 
 	private Categoria cat_id;
 	private Pessoajuridica pj_id;
@@ -21,9 +21,20 @@ public class Livro {
      *
      * @return
      */
-    public int getLiv_id() {
-		return liv_id;
+        
+        
+         
+    public void setTotallivro(int totallivro) {
+        this.totallivro = totallivro;
 	}
+
+    public int getTotallivro() {
+        return totallivro;
+    }
+
+    public int getLiv_id() {
+        return liv_id;
+    }
 
     /**
      *

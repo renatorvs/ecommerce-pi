@@ -683,7 +683,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton22">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Adicionar ao carrinho"/>
+                        <Property name="text" type="java.lang.String" value="mais informa&#xe7;oes"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton22ActionPerformed"/>
@@ -780,7 +780,7 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="jLabel22" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="livpreco4" min="-2" max="-2" attributes="0"/>
+                                          <Component id="livpreco04" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -794,7 +794,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="livpreco4" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="livpreco04" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel38" min="-2" max="-2" attributes="0"/>
@@ -823,7 +823,7 @@
                             <Property name="text" type="java.lang.String" value="Pequena sereia"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="livpreco4">
+                        <Component class="javax.swing.JLabel" name="livpreco04">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Tahoma" size="12" style="1"/>
@@ -851,7 +851,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="jButton27">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="mais informa&#xe7;oes"/>
+                        <Property name="text" type="java.lang.String" value="mais informa&#xe7;&#xf5;es"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton27ActionPerformed"/>

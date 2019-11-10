@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package model.dao;
-import br.com.ecommerce.entities.Livro;
-import br.com.ecommerce.entities.Pessoafisica;
 
+import br.com.ecommerce.entities.Pagamento;
+import br.com.ecommerce.entities.Pessoafisica;
 import connection.ConnectionFactory;
-import java.sql.Connection; 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,9 +21,8 @@ import javax.swing.JOptionPane;
  *
  * @author nator
  */
-public class PessoafisicaDAO {
-
-    public void create(Pessoafisica pf) throws SQLException{
+public class CartaoDao {
+    public void create(Pagamento pag) throws SQLException{
     Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt =  null;
         
@@ -35,12 +34,12 @@ public class PessoafisicaDAO {
                       
                       
                       
-                      stmt =  con.prepareStatement(" INSERT INTO pessoafisica(pf_cpf, pf_email, pf_senha, pf_Nome, pf_Sobrenome) VALUES (?, ?, ?, ?, ?)");
-                      stmt.setString(1, pf.getPf_cpf());
-                       stmt.setString(2, pf.getPf_email());
-                       stmt.setString(3, pf.getPf_senha());
-                       stmt.setString(4, pf.getPf_nome());
-                       stmt.setString(5, pf.getPf_sobrenome());
+                      stmt =  con.prepareStatement(" INSERT INTO pagamento(pf_cpf, pf_email, pf_senha, pf_Nome, pf_Sobrenome) VALUES (?, ?, ?, ?, ?)");
+                      stmt.setString(1, pag.getPag_nome_titular());
+                       stmt.setString(2, pag.getPag_card_numero());
+                       stmt.setString(3, pag.getPag_cod_seguranca());
+                       stmt.setString(4, pag.getPag_data_venci());
+                       
                        
                         
                       stmt.executeUpdate();
@@ -54,11 +53,11 @@ public class PessoafisicaDAO {
     
     }
 
-    public List<Pessoafisica> read() throws SQLException {
+    public List<Pagamento> read() throws SQLException {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt =  null;
         ResultSet rs = null;
-               List<Pessoafisica> pessoasfisicas = new ArrayList<>();
+               List<Pagamento> pag = new ArrayList<>();
 
          try {
             
@@ -67,24 +66,24 @@ public class PessoafisicaDAO {
         rs = stmt.executeQuery();
  
         while (rs.next()) {
-              Pessoafisica  pf  = new Pessoafisica();
+              Pagamento  pagamento  = new Pagamento();
                 
-                pf.setPf_cpf(rs.getString("pf_cpf"));
-                pf.setPf_email(rs.getString("pf_email"));
-                pf.setPf_nome(rs.getString("pf_"));
-                pf.setPf_sobrenome(rs.getString("pf_sobrenome"));
+                pagamento.setPf_cpf(rs.getString("pf_cpf"));
+                pagamento.setPf_email(rs.getString("pf_email"));
+                pagamento.setPf_nome(rs.getString("pf_"));
+                pagamento.setPf_sobrenome(rs.getString("pf_sobrenome"));
                  
-                pessoasfisicas.add(pf);
+                pag.add(pagamento);
                 
              }
                
                      
         } catch (SQLException ex) {
-                                  JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+                                  
 
             java.util.logging.Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,  ex);
         }
-        return pessoasfisicas;
+        return pag;
         
        
         

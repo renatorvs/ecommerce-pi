@@ -71,7 +71,7 @@ public class Principal extends javax.swing.JFrame {
         jPanel20 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         livtitulo04 = new javax.swing.JLabel();
-        livpreco4 = new javax.swing.JLabel();
+        livpreco04 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
@@ -360,7 +360,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton22.setText("Adicionar ao carrinho");
+        jButton22.setText("mais informaçoes");
         jButton22.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton22ActionPerformed(evt);
@@ -420,8 +420,8 @@ public class Principal extends javax.swing.JFrame {
         livtitulo04.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         livtitulo04.setText("Pequena sereia");
 
-        livpreco4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        livpreco4.setText("50.00 ");
+        livpreco04.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        livpreco04.setText("50.00 ");
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("R$:");
@@ -441,7 +441,7 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jPanel20Layout.createSequentialGroup()
                         .addComponent(jLabel22)
                         .addGap(18, 18, 18)
-                        .addComponent(livpreco4)
+                        .addComponent(livpreco04)
                         .addContainerGap())))
         );
         jPanel20Layout.setVerticalGroup(
@@ -451,7 +451,7 @@ public class Principal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel20Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel22)
-                    .addComponent(livpreco4))
+                    .addComponent(livpreco04))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel38)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -464,7 +464,7 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jButton27.setText("mais informaçoes");
+        jButton27.setText("mais informações");
         jButton27.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton27ActionPerformed(evt);
@@ -902,7 +902,18 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
+        try {  
+        Livro liv;
+         liv = new Livro();
+         
+          liv.setLiv_titulo(livtitulo02.getText());
+          liv.setLiv_preco(Double.parseDouble(livpreco02.getText()));
+            LivroDAO livrodao = new LivroDAO();
+             livrodao.create(liv);
+             new CarrinhoJ().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -910,7 +921,18 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-
+                 try {  
+        Livro liv;
+         liv = new Livro();
+         
+          liv.setLiv_titulo(livtitulo03.getText());
+          liv.setLiv_preco(Double.parseDouble(livpreco03.getText()));
+            LivroDAO livrodao = new LivroDAO();
+             livrodao.create(liv);
+             new CarrinhoJ().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
@@ -918,7 +940,18 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
-        // TODO add your handling code here:
+         try {  
+        Livro liv;
+         liv = new Livro();
+         
+          liv.setLiv_titulo(livtitulo04.getText());
+          liv.setLiv_preco(Double.parseDouble(livpreco04.getText()));
+            LivroDAO livrodao = new LivroDAO();
+             livrodao.create(liv);
+             new CarrinhoJ().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -926,7 +959,18 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        // TODO add your handling code here:
+         try {  
+        Livro liv;
+         liv = new Livro();
+         
+          liv.setLiv_titulo(livtitulo05.getText());
+          liv.setLiv_preco(Double.parseDouble(livpreco05.getText()));
+            LivroDAO livrodao = new LivroDAO();
+             livrodao.create(liv);
+             new CarrinhoJ().setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
@@ -1063,8 +1107,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel livpreco01;
     private javax.swing.JLabel livpreco02;
     private javax.swing.JLabel livpreco03;
+    private javax.swing.JLabel livpreco04;
     private javax.swing.JLabel livpreco05;
-    private javax.swing.JLabel livpreco4;
     private javax.swing.JLabel livtitulo01;
     private javax.swing.JLabel livtitulo02;
     private javax.swing.JLabel livtitulo03;
