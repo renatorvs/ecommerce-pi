@@ -43,14 +43,13 @@ public class EnderecoDAO {
                       
                       
                       
-                      stmt =  con.prepareStatement(" INSERT INTO endereco(pf_cpf, pf_email, pf_senha, pf_Nome, pf_Sobrenome) VALUES (?, ?, ?, ?, ?)");
-                      stmt.setString(1, ender.getEnder_estado());
-                       stmt.setString(2,ender.getEnder_cidade());
-                       stmt.setString(3, ender.getEnder_bairro());
-                       stmt.setString(4, ender.getEnder_logra());
-                       stmt.setString(5, ender.getEnder_numero());
-                       stmt.setString(6, ender.getEnder_compl());
-                       stmt.setString(7, ender.getEnder_cep());
+                      stmt =  con.prepareStatement(" INSERT INTO endereco(ender_comple, ender_numero, ender_logradouro, ender_bairro, ender_cidade, ender_estado) VALUES (?, ?, ?, ?, ?, ?)");
+                       stmt.setString(1, ender.getEnder_compl());
+                       stmt.setString(2, ender.getEnder_numero());
+                       stmt.setString(3, ender.getEnder_logra());
+                       stmt.setString(4, ender.getEnder_bairro());
+                       stmt.setString(5,ender.getEnder_cidade());
+                      stmt.setString(6, ender.getEnder_estado());
                        
                         
                       stmt.executeUpdate();
@@ -63,37 +62,38 @@ public class EnderecoDAO {
     
     }
 
-    public List<Pessoafisica> read() throws SQLException {
+    public List<Endereco> read() throws SQLException {
         Connection con = ConnectionFactory.getConnection();
         PreparedStatement stmt =  null;
         ResultSet rs = null;
-               List<Pessoafisica> pessoasfisicas = new ArrayList<>();
+               List<Endereco> enderecos = new ArrayList<>();
 
          try {
             
-        stmt =  con.prepareStatement("SELECT pf_cpf, pf_email, pf_Nome, pf_Sobrenome FROM pessoafisica ORDER BY pf_id DESC LIMIT 1");
+        stmt =  con.prepareStatement("SELECT ender_comple, ender_numero, ender_logradouro, ender_bairro, ender_cidade, ender_estado FROM endereco ORDER BY ender_id DESC LIMIT 1");
         
         rs = stmt.executeQuery();
  
         while (rs.next()) {
-              Pessoafisica  pf  = new Pessoafisica();
+              Endereco  ender  = new Endereco();
                 
-                pf.setPf_cpf(rs.getString("pf_cpf"));
-                pf.setPf_email(rs.getString("pf_email"));
-                pf.setPf_nome(rs.getString("pf_"));
-                pf.setPf_sobrenome(rs.getString("pf_sobrenome"));
+                ender.setEnder_estado(rs.getString("ender_estado"));
+                ender.setEnder_cidade(rs.getString("ender_cidade"));
+                ender.setEnder_bairro(rs.getString("ender_bairro"));
+                ender.setEnder_logra(rs.getString("ender_logradouro"));
+                ender.setEnder_numero(rs.getString("ender_numero"));
+                ender.setEnder_compl(rs.getString("ender_comple"));
                  
-                pessoasfisicas.add(pf);
+                enderecos.add(ender);
                 
              }
                
                      
         } catch (SQLException ex) {
-                                  JOptionPane.showMessageDialog(null, "Salvo com sucesso");
 
             java.util.logging.Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,  ex);
         }
-        return pessoasfisicas;
+        return enderecos;
         
        
         

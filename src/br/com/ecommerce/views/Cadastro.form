@@ -191,14 +191,14 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="nome "/>
+            <Property name="text" type="java.lang.String" value="Sobrenome"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="loginnome">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
-            <Property name="text" type="java.lang.String" value="sobrenome"/>
+            <Property name="text" type="java.lang.String" value="Nome"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="loginsobrenome">

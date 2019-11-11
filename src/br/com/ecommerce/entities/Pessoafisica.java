@@ -14,17 +14,6 @@ public class Pessoafisica {
 	private String pf_nome;
 	private String pf_sobrenome;
 	
-        
-    public Pessoafisica(String pf_cpf, String pf_email, String pf_senha, String pf_nome, String pf_sobrenome ) {
-            this.pf_cpf = pf_cpf;
-            this.pf_email = pf_email;
-            this.pf_senha = pf_senha;
-            this.pf_nome = pf_nome;
-            this.pf_sobrenome = pf_sobrenome;
-	}
-public Pessoafisica() throws SQLException {
-        throw new SQLException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
    
 
     public String getPf_nome() {

@@ -85,9 +85,9 @@ public class Cadastro extends javax.swing.JFrame {
 
         jLabel3.setText("confirmar senha");
 
-        jLabel1.setText("nome ");
+        jLabel1.setText("Sobrenome");
 
-        jLabel5.setText("sobrenome");
+        jLabel5.setText("Nome");
 
         jLabel6.setText("senha");
 
@@ -188,7 +188,11 @@ public class Cadastro extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             try {
             Pessoafisica pf;
-         pf = new Pessoafisica(logincpf.getText(), loginemail.getText(), loginsenha.getText(), loginnome.getText(), loginsobrenome.getText());
+         pf = new Pessoafisica();
+                 pf.setPf_cpf(logincpf.getText());
+                 pf.setPf_email(loginemail.getText());
+                 pf.setPf_nome(loginnome.getText());
+                 pf.setPf_senha(loginsenha.getText());
            
             PessoafisicaDAO dao = new PessoafisicaDAO();
              

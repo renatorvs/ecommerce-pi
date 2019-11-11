@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package model.dao;
-import br.com.ecommerce.entities.Livro;
 import br.com.ecommerce.entities.Pessoafisica;
 
 import connection.ConnectionFactory;
@@ -45,10 +44,8 @@ public class PessoafisicaDAO {
                         
                       stmt.executeUpdate();
                       
-                      JOptionPane.showMessageDialog(null, "Salvo com sucesso");
+                      JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
         } catch (SQLException ex) {
-                                  JOptionPane.showMessageDialog(null, "Salvo com sucesso");
-
             java.util.logging.Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,  ex);
         }
     
@@ -71,7 +68,7 @@ public class PessoafisicaDAO {
                 
                 pf.setPf_cpf(rs.getString("pf_cpf"));
                 pf.setPf_email(rs.getString("pf_email"));
-                pf.setPf_nome(rs.getString("pf_"));
+                pf.setPf_nome(rs.getString("pf_Nome"));
                 pf.setPf_sobrenome(rs.getString("pf_sobrenome"));
                  
                 pessoasfisicas.add(pf);

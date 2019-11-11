@@ -5,7 +5,7 @@
  */
 package connection;
 
-import com.mysql.jdbc.Connection;
+import java.sql.Connection;
 import com.sun.istack.internal.logging.Logger;
 import static java.lang.Class.forName;
 import java.sql.DriverManager;
@@ -49,13 +49,9 @@ public class ConnectionFactory {
      *
      * @param con
      */
-    public static void closeConnection(Connection con){
-        try {
-            if (con != null) {
+    public static void closeConnection(Connection con) throws SQLException{
+        if (con != null) {
             con.close();
-        }
-        } catch (SQLException ex) {
-            java.util.logging.Logger.getLogger(ConnectionFactory.class.getName()).log(Level.SEVERE, null,  ex);
         }
         
     }
@@ -65,7 +61,7 @@ public class ConnectionFactory {
      * @param con
      * @param stmt
      */
-    public static void closeConnection(Connection con, PreparedStatement stmt){
+    public static void closeConnection(Connection con, PreparedStatement stmt) throws SQLException{
         
         closeConnection(con);
         try {
@@ -84,7 +80,7 @@ public class ConnectionFactory {
      * @param stmt
      * @param result
      */
-    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet result ){
+    public static void closeConnection(Connection con, PreparedStatement stmt, ResultSet result ) throws SQLException{
         
         
         

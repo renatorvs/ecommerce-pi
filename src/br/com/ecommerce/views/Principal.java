@@ -880,7 +880,7 @@ public class Principal extends javax.swing.JFrame {
     private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
         
        
-       
+       new Cadastro().setVisible(true);
 
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 

@@ -5,14 +5,18 @@
  */
 package br.com.ecommerce.views;
 
+import br.com.ecommerce.entities.Endereco;
 import br.com.ecommerce.entities.Livro;
+import br.com.ecommerce.entities.Pagamento;
 import br.com.ecommerce.entities.Pessoafisica;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.table.DefaultTableModel;
+import model.dao.EnderecoDAO;
 import model.dao.LivroDAO;
+import model.dao.PagamentoDAO;
 import model.dao.PessoafisicaDAO;
 
 /**
@@ -28,6 +32,9 @@ public class Finalizacompra extends javax.swing.JFrame {
         
         initComponents();
          try {
+            jtablecard();
+            readCliente(); 
+            readEndereco();
             readJtable();
         } catch (SQLException ex) {
             Logger.getLogger(CarrinhoJ.class.getName()).log(Level.SEVERE, null, ex);
@@ -67,12 +74,14 @@ public class Finalizacompra extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         total = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTablecliente = new javax.swing.JTable();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTableentrega = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tablentrega = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -205,7 +214,7 @@ public class Finalizacompra extends javax.swing.JFrame {
 
             },
             new String [] {
-                "nome titular", "numero do cartão", "codigo de segunça", "data vencimento"
+                "nome titular", "numero do cartão", "data vencimento"
             }
         ));
         jScrollPane5.setViewportView(jtablecartao);
@@ -225,15 +234,25 @@ public class Finalizacompra extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("Valor do frete: R$ 25,00");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("Obrigado pela sua compra ! ");
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 954, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 566, Short.MAX_VALUE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 917, Short.MAX_VALUE)
+                        .addGap(789, 789, 789))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel3Layout.createSequentialGroup()
+                                .addGap(351, 351, 351)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,7 +269,7 @@ public class Finalizacompra extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 962, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 917, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -260,27 +279,26 @@ public class Finalizacompra extends javax.swing.JFrame {
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(total, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(26, 26, 26))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(92, 92, 92)
+                        .addComponent(jLabel8)))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, -1, 495));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 560, -1, 770));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel4.setText("Dados do Cliente");
@@ -291,28 +309,32 @@ public class Finalizacompra extends javax.swing.JFrame {
 
             },
             new String [] {
-                "cpf", "nome", "sobrenome", "email"
+                "cpf", "email", "nome", "sobrenome"
             }
         ));
         jScrollPane4.setViewportView(jTablecliente);
 
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 960, 100));
-
-        jTableentrega.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Estado", "Cidade", "Bairro", "logradouro", "numero", "comple"
-            }
-        ));
-        jScrollPane6.setViewportView(jTableentrega);
-
-        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 960, 100));
+        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 920, 100));
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel6.setText("Dados da entrega:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 252, -1));
+
+        tablentrega.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Complemento", "Numero", "Logradouro", "Bairro", "Cidade", "Estado"
+            }
+        ));
+        jScrollPane6.setViewportView(tablentrega);
+
+        jPanel1.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 920, 80));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("OBS: Sua compra será entrega em 10 duas uteis.");
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, 330, 27));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -320,17 +342,13 @@ public class Finalizacompra extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 930, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1101, Short.MAX_VALUE)
-                .addGap(37, 37, 37))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 1323, Short.MAX_VALUE))
         );
 
         pack();
@@ -364,12 +382,38 @@ public class Finalizacompra extends javax.swing.JFrame {
        
     
     }
+    private void readEndereco() throws SQLException{
+     DefaultTableModel dtmEndereco = (DefaultTableModel)tablentrega.getModel();
+            EnderecoDAO enderDAO  = new EnderecoDAO();
+          
+            for(Endereco ender : enderDAO.read()){
+            
+                dtmEndereco.addRow(new Object[]{
+                ender.getEnder_compl(),
+                ender.getEnder_numero(),
+                ender.getEnder_logra(),
+                ender.getEnder_bairro(),
+                ender.getEnder_cidade(),
+                ender.getEnder_estado(),
+                
+                });
+                
+              
+                 
+            }
+            
+            
+            
+            
     
+    
+    
+    }
     
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
-public void readJtable() throws SQLException{
+private void readJtable() throws SQLException{
     
       DefaultTableModel dtmLivros = (DefaultTableModel)livrojtable.getModel();
             LivroDAO livroDao = new LivroDAO();
@@ -395,8 +439,53 @@ public void readJtable() throws SQLException{
                 
     }
     
+    private void readCliente() throws SQLException{
+     DefaultTableModel dtmCliente = (DefaultTableModel)jTablecliente.getModel();
+            PessoafisicaDAO pfdao  = new PessoafisicaDAO();
+          
+            for(Pessoafisica pf : pfdao.read()){
+            
+                dtmCliente.addRow(new Object[]{
+                pf.getPf_cpf(),
+                pf.getPf_email(),
+                pf.getPf_nome(),
+                pf.getPf_sobrenome(),
+                
+                });
+                
+              
+                 
+            }
     
-    
+    }
+     private void jtablecard(){
+        try {
+            
+             DefaultTableModel dtmCard = (DefaultTableModel)jtablecartao.getModel();
+             PagamentoDAO pagdao = new PagamentoDAO();
+            
+            for(Pagamento pag : pagdao.read()){
+            
+                Pagamento Pag = new Pagamento();
+           
+                dtmCard.addRow(new Object[]{
+                pag.getPag_nome_titular(),
+                pag.getPag_card_numero(),
+                pag.getPag_data_venci(),
+               
+                
+                });
+                
+            
+            }
+            
+            
+        } catch (Exception e) {
+        }
+        
+        
+        }
+        
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
@@ -449,6 +538,8 @@ public void readJtable() throws SQLException{
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -461,10 +552,10 @@ public void readJtable() throws SQLException{
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTablecliente;
-    private javax.swing.JTable jTableentrega;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTable jtablecartao;
     private javax.swing.JTable livrojtable;
+    private javax.swing.JTable tablentrega;
     private javax.swing.JLabel total;
     // End of variables declaration//GEN-END:variables
 }
