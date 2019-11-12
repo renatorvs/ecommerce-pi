@@ -5,6 +5,7 @@
  */
 package model.dao;
 
+import br.com.ecommerce.entities.Endereco;
 import br.com.ecommerce.entities.Livro;
 import com.mysql.jdbc;
 import connection.ConnectionFactory;
@@ -81,5 +82,22 @@ public class LivroDAO {
     
     }
     
-    
+    public void delete(Livro liv) throws SQLException{
+        
+        try {
+            
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =  null;
+        ResultSet rs = null;
+            
+        stmt =  con.prepareStatement("DELETE FROM livro WHERE liv_id = ?");
+        stmt.setInt(1, liv.getLiv_id());
+         stmt.executeUpdate();
+         JOptionPane.showMessageDialog(null ,"livro excluido com sucesso");
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null ,"Livro não foi excluido" + e);
+
+        }
+       
+    }
 }

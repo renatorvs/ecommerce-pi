@@ -151,6 +151,7 @@ public class Enderecoview extends javax.swing.JFrame {
 
         jLabel8.setText("numero");
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Adicionar  ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -158,7 +159,13 @@ public class Enderecoview extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton2.setText("excluir");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         tableendereco.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,7 +177,8 @@ public class Enderecoview extends javax.swing.JFrame {
         ));
         jScrollPane6.setViewportView(tableendereco);
 
-        jButton3.setText("Ir par ao carrinho");
+        jButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton3.setText("Ir para o carrinho");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -243,11 +251,11 @@ public class Enderecoview extends javax.swing.JFrame {
                     .addComponent(txtlogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtnumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtcomple, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(415, Short.MAX_VALUE))
@@ -333,6 +341,32 @@ public class Enderecoview extends javax.swing.JFrame {
         }
      
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       if(tableendereco.getSelectedRow() != -1);{
+            try {
+            Endereco ender = new Endereco();
+            EnderecoDAO enderdao = new EnderecoDAO();
+            
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_titulo(txtlivro.getText());
+            ender.setLiv_preco(Double.parseDouble(txtpreco.getText()));
+            ender.setEnder_id((int) tableendereco.getValueAt(tableendereco.getSelectedRow(), 0));
+                ender.delete(liv);
+                txtlivro.setText("");
+                txtpreco.setText("");
+                        
+                new CarrinhoJ().setVisible(true);
+                
+            } catch (SQLException ex) {
+                Logger.getLogger(CarrinhoJ.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     
     

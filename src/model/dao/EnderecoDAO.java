@@ -98,4 +98,26 @@ public class EnderecoDAO {
        
         
     }
+    
+    
+    
+    
+    public void delete(Endereco ender) throws SQLException{
+        
+        try {
+            
+        Connection con = ConnectionFactory.getConnection();
+        PreparedStatement stmt =  null;
+        ResultSet rs = null;
+            
+        stmt =  con.prepareStatement("DELETE FROM endereco WHERE ender_id = ? ");
+        stmt.setInt(1, ender.getEnder_id());
+         stmt.executeUpdate();
+         JOptionPane.showMessageDialog(null ,"Endereço excluido com sucesso");
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null ,"Endereço excluido com sucesso" + e);
+
+        }
+       
+    }
 }
