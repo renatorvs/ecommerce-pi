@@ -70,7 +70,7 @@ public class EnderecoDAO {
 
          try {
             
-        stmt =  con.prepareStatement("SELECT ender_comple, ender_numero, ender_logradouro, ender_bairro, ender_cidade, ender_estado FROM endereco ORDER BY ender_id DESC LIMIT 1");
+        stmt =  con.prepareStatement("SELECT ender_id, ender_comple, ender_numero, ender_logradouro, ender_bairro, ender_cidade, ender_estado FROM endereco ORDER BY ender_id DESC LIMIT 1");
         
         rs = stmt.executeQuery();
  
@@ -83,7 +83,7 @@ public class EnderecoDAO {
                 ender.setEnder_logra(rs.getString("ender_logradouro"));
                 ender.setEnder_numero(rs.getString("ender_numero"));
                 ender.setEnder_compl(rs.getString("ender_comple"));
-                 
+                 ender.setEnder_id(rs.getInt("ender_id"));
                 enderecos.add(ender);
                 
              }

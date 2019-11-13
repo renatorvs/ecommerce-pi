@@ -34,12 +34,12 @@ public class PessoafisicaDAO {
                       
                       
                       
-                      stmt =  con.prepareStatement(" INSERT INTO pessoafisica(pf_cpf, pf_email, pf_senha, pf_Nome, pf_Sobrenome) VALUES (?, ?, ?, ?, ?)");
+                      stmt =  con.prepareStatement(" INSERT INTO pessoafisica(pf_cpf, pf_email, pf_senha, pf_nome, pf_sobrenome) VALUES (?, ?, ?, ?, ?)");
                       stmt.setString(1, pf.getPf_cpf());
                        stmt.setString(2, pf.getPf_email());
-                       stmt.setString(3, pf.getPf_senha());
                        stmt.setString(4, pf.getPf_nome());
                        stmt.setString(5, pf.getPf_sobrenome());
+                       stmt.setString(3, pf.getPf_senha());
                        
                         
                       stmt.executeUpdate();
@@ -59,7 +59,7 @@ public class PessoafisicaDAO {
 
          try {
             
-        stmt =  con.prepareStatement("SELECT pf_cpf, pf_email, pf_Nome, pf_Sobrenome FROM pessoafisica ORDER BY pf_id DESC LIMIT 1");
+        stmt =  con.prepareStatement("SELECT pf_cpf, pf_email, pf_nome, pf_sobrenome FROM pessoafisica ORDER BY pf_id DESC LIMIT 1");
         
         rs = stmt.executeQuery();
  
